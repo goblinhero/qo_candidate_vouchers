@@ -1,0 +1,9 @@
+vendor/
+.idea/
+.phpunit.result.cache
+storage/logs/
+storage/logs/*
+/storage/logs/laravel.log
+bootstrap/cache
+bootstrap/cache/*
+.env.testing
