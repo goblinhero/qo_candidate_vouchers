@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Order;
 
-use Illuminate\Http\Request;
+use App\Models\Order;
+use Illuminate\Routing\Controller;
 
 class GetOrderController extends Controller
 {
-    //
+    public function handle(Order $order) {
+        return $order;
+    }
 }
