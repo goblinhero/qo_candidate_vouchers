@@ -36,7 +36,7 @@ class Product extends Model
     ];
 
     protected $fillable = [
-        'amount_original',
-        'amount_remaining'
+        'price_each',
+        'description'
     ];
 }
