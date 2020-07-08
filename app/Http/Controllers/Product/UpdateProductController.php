@@ -10,7 +10,7 @@ class UpdateProductController extends Controller
 {
     public function handle(Product $product, Request $request) {
 
-        $product->fill($request->all());
+        $product->update($request->all());
 
         return $product->fresh();
 

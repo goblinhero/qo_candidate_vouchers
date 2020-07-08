@@ -10,7 +10,7 @@ class UpdateVoucherController extends Controller
 {
     public function handle(Voucher $voucher, Request $request) {
 
-        $voucher->fill($request->all());
+        $voucher->update($request->all());
 
         return $voucher->fresh();
 

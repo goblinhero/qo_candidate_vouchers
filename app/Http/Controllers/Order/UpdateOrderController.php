@@ -10,7 +10,7 @@ class UpdateOrderController extends Controller
 {
     public function handle(Order $order, Request $request) {
 
-        $order->fill($request->all());
+        $order->update($request->all());
 
         $order->calculateTotal();
 

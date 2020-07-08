@@ -39,6 +39,7 @@ class OrderLine extends Model
 {
     protected $visible = [
         'id',
+        'order_id',
         'product_id',
         'description',
         'amount_each',
