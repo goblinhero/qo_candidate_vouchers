@@ -7,12 +7,11 @@ use Illuminate\Routing\Controller;
 
 class DeleteOrderController extends Controller
 {
-    public function handle(Order $order) {
+    public function __invoke(Order $order) {
 
         $order->delete();
 
-        return response($order)
-            ->setStatusCode(200);
+        return response()->json($order, 200);
 
     }
 }

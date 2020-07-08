@@ -7,7 +7,7 @@ use Illuminate\Routing\Controller;
 
 class GetProductsController extends Controller
 {
-    public function handle() {
+    public function __invoke() {
         return Product::all();
     }
 }

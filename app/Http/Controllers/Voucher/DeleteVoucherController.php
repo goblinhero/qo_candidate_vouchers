@@ -7,12 +7,11 @@ use Illuminate\Routing\Controller;
 
 class DeleteVoucherController extends Controller
 {
-    public function handle(Voucher $voucher) {
+    public function __invoke(Voucher $voucher) {
 
         $voucher->delete();
 
-        return response($voucher)
-            ->setStatusCode(200);
+        return response($voucher, 200);
 
     }
 }

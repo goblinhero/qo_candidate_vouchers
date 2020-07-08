@@ -47,7 +47,7 @@ class Order extends Model
         $total = 0;
 
         if($this->lines && $this->lines->isNotEmpty()) {
-            $this->lines->sum(function(OrderLine $ol) { return $ol->amount_total; });
+            $total += $this->lines->sum(fn (OrderLine $ol) => $ol->amount_total);
         }
 
         if($this->voucher) {

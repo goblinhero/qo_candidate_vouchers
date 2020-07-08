@@ -7,12 +7,11 @@ use Illuminate\Routing\Controller;
 
 class DeleteProductController extends Controller
 {
-    public function handle(Product $product) {
+    public function __invoke(Product $product) {
 
         $product->delete();
 
-        return response($product)
-            ->setStatusCode(200);
+        return response($product, 200);
 
     }
 }

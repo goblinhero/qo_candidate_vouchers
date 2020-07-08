@@ -7,7 +7,7 @@ use Illuminate\Routing\Controller;
 
 class GetVouchersController extends Controller
 {
-    public function handle() {
+    public function __invoke() {
         return Voucher::all();
     }
 }

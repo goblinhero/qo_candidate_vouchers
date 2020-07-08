@@ -7,7 +7,7 @@ use Illuminate\Routing\Controller;
 
 class GetOrderController extends Controller
 {
-    public function handle(Order $order) {
+    public function __invoke(Order $order) {
         return $order;
     }
 }

@@ -8,14 +8,14 @@ use Illuminate\Routing\Controller;
 
 class DeleteOrderLineController extends Controller
 {
-    public function handle(Order $order, OrderLine $orderLine) {
+    public function __invoke(Order $order, OrderLine $orderLine) {
 
         $orderLine->delete();
 
         $order->calculateTotal();
 
-        return response($orderLine)
-            ->setStatusCode(200);
+        $order->save();
 
+        return response($orderLine, 200);
     }
 }

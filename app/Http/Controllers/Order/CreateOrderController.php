@@ -4,11 +4,11 @@ namespace App\Http\Controllers\Order;
 
 use App\Models\Order;
 use Illuminate\Routing\Controller;
-use Illuminate\Http\Request;;
+use Illuminate\Http\Request;
 
 class CreateOrderController extends Controller
 {
-    public function handle(Request $request) {
+    public function __invoke(Request $request) {
         $order = new Order($request->all());
 
         $order->calculateTotal();
@@ -17,8 +17,8 @@ class CreateOrderController extends Controller
 
         return response()
             ->json(
-                $order->fresh()
-            )
-            ->setStatusCode(201);
+                $order->fresh(),
+                201
+            );
     }
 }

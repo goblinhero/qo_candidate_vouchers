@@ -8,3 +8,4 @@ bootstrap/cache/*
 !vendor/cache/info.md
 !bootstrap/cache/info.md
 .env.testing
+.env

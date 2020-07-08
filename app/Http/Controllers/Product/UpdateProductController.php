@@ -4,11 +4,11 @@ namespace App\Http\Controllers\Product;
 
 use App\Models\Product;
 use Illuminate\Routing\Controller;
-use Illuminate\Http\Request;;
+use Illuminate\Http\Request;
 
 class UpdateProductController extends Controller
 {
-    public function handle(Product $product, Request $request) {
+    public function __invoke(Product $product, Request $request) {
 
         $product->update($request->all());
 

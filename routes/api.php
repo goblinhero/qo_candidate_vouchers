@@ -1,8 +1,10 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Order as Order;
+use App\Http\Controllers\Product as Product;
+use App\Http\Controllers\Voucher as Voucher;
+use App\Http\Controllers\OrderLine as OrderLine;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -14,25 +16,33 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::prefix('orders')->group(function () {
-    Route::get('','Order\GetOrdersController@handle');
-    Route::post('','Order\CreateOrderController@handle');
-    Route::patch('{order}','Order\UpdateOrderController@handle');
-    Route::delete('{order}','Order\DeleteOrderController@handle');
-    Route::get('{order}','Order\GetOrderController@handle');
+    Route::get('', Order\GetOrdersController::class);
+    Route::post('', Order\CreateOrderController::class);
+    Route::patch('{order}', Order\UpdateOrderController::class);
+    Route::delete('{order}', Order\DeleteOrderController::class);
+    Route::get('{order}', Order\GetOrderController::class);
+
+    Route::prefix('{order}/order-lines')->group(function () {
+        Route::get('', OrderLine\GetOrderLinesByOrderController::class);
+        Route::post('', OrderLine\CreateOrderLineController::class);
+        Route::patch('{order-line}', OrderLine\UpdateOrderLineController::class);
+        Route::delete('{order-line}', OrderLine\DeleteOrderLineController::class);
+        Route::get('{order-line}', OrderLine\GetOrderLineController::class);
+    });
 });
 
 Route::prefix('products')->group(function () {
-    Route::get('','Product\GetProductsController@handle');
-    Route::post('','Product\CreateProductController@handle');
-    Route::patch('{product}','Product\UpdateProductController@handle');
-    Route::delete('{product}','Product\DeleteProductController@handle');
-    Route::get('{product}','Product\GetProductController@handle');
+    Route::get('', Product\GetProductsController::class);
+    Route::post('', Product\CreateProductController::class);
+    Route::patch('{product}', Product\UpdateProductController::class);
+    Route::delete('{product}', Product\DeleteProductController::class);
+    Route::get('{product}', Product\GetProductController::class);
 });
 
 Route::prefix('vouchers')->group(function () {
-    Route::get('','Voucher\GetVouchersController@handle');
-    Route::post('','Voucher\CreateVoucherController@handle');
-    Route::patch('{voucher}','Voucher\UpdateVoucherController@handle');
-    Route::delete('{voucher}','Voucher\DeleteVoucherController@handle');
-    Route::get('{voucher}','Voucher\GetVoucherController@handle');
+    Route::get('', Voucher\GetVouchersController::class);
+    Route::post('', Voucher\CreateVoucherController::class);
+    Route::patch('{voucher}', Voucher\UpdateVoucherController::class);
+    Route::delete('{voucher}', Voucher\DeleteVoucherController::class);
+    Route::get('{voucher}', Voucher\GetVoucherController::class);
 });

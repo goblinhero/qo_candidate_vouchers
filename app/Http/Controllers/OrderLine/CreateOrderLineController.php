@@ -1,26 +1,29 @@
 <?php
 
-namespace App\Http\Controllers\Order;
+namespace App\Http\Controllers\OrderLine;
 
 use App\Models\Order;
 use App\Models\OrderLine;
 use Illuminate\Routing\Controller;
-use Illuminate\Http\Request;;
+use Illuminate\Http\Request;
 
-class CreateOrderController extends Controller
+class CreateOrderLineController extends Controller
 {
-    public function handle(Order $order, Request $request) {
+    public function __invoke(Order $order, Request $request) {
 
         $orderLine = new OrderLine($request->all());
 
-        $order->lines->add($orderLine);
+        $order->lines()->save($orderLine);
+
 
         $order->calculateTotal();
 
+        $order->save();
+
         return response()
             ->json(
-                $orderLine->fresh()
-            )
-            ->setStatusCode(201);
+                $orderLine->fresh(),
+                201
+            );
     }
 }

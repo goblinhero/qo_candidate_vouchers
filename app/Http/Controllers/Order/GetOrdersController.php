@@ -7,7 +7,7 @@ use Illuminate\Routing\Controller;
 
 class GetOrdersController extends Controller
 {
-    public function handle() {
+    public function __invoke() {
         return Order::all();
     }
 }
