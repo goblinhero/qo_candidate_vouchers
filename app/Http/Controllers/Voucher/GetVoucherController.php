@@ -7,7 +7,7 @@ use Illuminate\Routing\Controller;
 
 class GetVoucherController extends Controller
 {
-    public function handle(Voucher $Voucher) {
-        return $Voucher;
+    public function handle(Voucher $voucher) {
+        return $voucher;
     }
 }

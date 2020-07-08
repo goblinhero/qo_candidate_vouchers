@@ -8,11 +8,11 @@ use Illuminate\Http\Request;;
 
 class UpdateVoucherController extends Controller
 {
-    public function handle(Voucher $Voucher, Request $request) {
+    public function handle(Voucher $voucher, Request $request) {
 
-        $Voucher->fill($request->all());
+        $voucher->fill($request->all());
 
-        return $Voucher->fresh();
+        return $voucher->fresh();
 
     }
 }

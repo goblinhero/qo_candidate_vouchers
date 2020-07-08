@@ -1,21 +1,21 @@
 <?php
 
-namespace App\Http\Controllers\Voucher;
+namespace App\Http\Controllers\Product;
 
-use App\Models\Voucher;
+use App\Models\Product;
 use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;;
 
-class CreateVoucherController extends Controller
+class CreateProductController extends Controller
 {
     public function handle(Request $request) {
-        $voucher = new Voucher($request->all());
+        $product = new Product($request->all());
 
-        $voucher->save();
+        $product->save();
 
         return response()
             ->json(
-                $voucher->fresh()
+                $product->fresh()
             )
             ->setStatusCode(201);
     }

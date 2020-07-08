@@ -21,6 +21,14 @@ Route::prefix('orders')->group(function () {
     Route::get('{order}','Order\GetOrderController@handle');
 });
 
+Route::prefix('products')->group(function () {
+    Route::get('','Product\GetProductsController@handle');
+    Route::post('','Product\CreateProductController@handle');
+    Route::patch('{product}','Product\UpdateProductController@handle');
+    Route::delete('{product}','Product\DeleteProductController@handle');
+    Route::get('{product}','Product\GetProductController@handle');
+});
+
 Route::prefix('vouchers')->group(function () {
     Route::get('','Voucher\GetVouchersController@handle');
     Route::post('','Voucher\CreateVoucherController@handle');
