@@ -13,6 +13,6 @@ class DeleteOrderController extends Controller
 
         return response($order)
             ->setStatusCode(200);
-        
+
     }
 }

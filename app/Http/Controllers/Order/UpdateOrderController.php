@@ -4,13 +4,15 @@ namespace App\Http\Controllers\Order;
 
 use App\Models\Order;
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\Request;
+use Illuminate\Http\Request;;
 
 class UpdateOrderController extends Controller
 {
     public function handle(Order $order, Request $request) {
 
-        $order->fill($request->toArray());
+        $order->fill($request->all());
+
+        $order->calculateTotal();
 
         return $order->fresh();
 

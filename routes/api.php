@@ -16,7 +16,15 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('orders')->group(function () {
     Route::get('','Order\GetOrdersController@handle');
     Route::post('','Order\CreateOrderController@handle');
-    Route::put('{order}','Order\UpdateOrderController@handle');
+    Route::patch('{order}','Order\UpdateOrderController@handle');
     Route::delete('{order}','Order\DeleteOrderController@handle');
     Route::get('{order}','Order\GetOrderController@handle');
+});
+
+Route::prefix('vouchers')->group(function () {
+    Route::get('','Voucher\GetVouchersController@handle');
+    Route::post('','Voucher\CreateVoucherController@handle');
+    Route::patch('{voucher}','Voucher\UpdateVoucherController@handle');
+    Route::delete('{voucher}','Voucher\DeleteVoucherController@handle');
+    Route::get('{voucher}','Voucher\GetVoucherController@handle');
 });

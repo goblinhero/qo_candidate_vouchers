@@ -4,12 +4,14 @@ namespace App\Http\Controllers\Order;
 
 use App\Models\Order;
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\Request;
+use Illuminate\Http\Request;;
 
 class CreateOrderController extends Controller
 {
     public function handle(Request $request) {
-        $order = new Order($request->toArray());
+        $order = new Order($request->all());
+
+        $order->calculateTotal();
 
         $order->save();
 
