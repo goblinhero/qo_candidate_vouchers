@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\ValidateTrait;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -28,6 +29,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Voucher extends Model
 {
+    use ValidateTrait;
+
     protected $visible = [
         'id',
         'amount_original',
@@ -41,4 +44,17 @@ class Voucher extends Model
         'amount_remaining'
     ];
 
+    public static function createRules() {
+        return [
+            'amount_original'   => 'int',
+            'amount_remaining'  => 'int',
+        ];
+    }
+
+    public static function updateRules() {
+        return [
+            'amount_original'   => 'int',
+            'amount_remaining'  => 'int',
+        ];
+    }
 }

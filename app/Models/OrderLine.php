@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\ValidateTrait;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -37,6 +38,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class OrderLine extends Model
 {
+    use ValidateTrait;
+
     protected $visible = [
         'id',
         'order_id',
@@ -64,4 +67,25 @@ class OrderLine extends Model
     public function order() {
         return $this->belongsTo(Order::class);
     }
+
+    public static function createRules() {
+        return [
+            'product_id'        => 'int|nullable',
+            'amount_each'       => 'int|nullable',
+            'amount_total'      => 'int|nullable',
+            'quantity'          => 'int|nullable',
+            'description'       => 'string|nullable',
+        ];
+    }
+
+    public static function updateRules() {
+        return [
+            'product_id'        => 'int|nullable',
+            'amount_each'       => 'int|nullable',
+            'amount_total'      => 'int|nullable',
+            'quantity'          => 'int|nullable',
+            'description'       => 'string|nullable',
+        ];
+    }
+
 }

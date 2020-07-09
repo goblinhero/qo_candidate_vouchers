@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\ValidateTrait;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -30,6 +31,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Order extends Model
 {
+    use ValidateTrait;
+
     protected $visible = [
         'id',
         'voucher_id',
@@ -63,6 +66,18 @@ class Order extends Model
 
     public function voucher() {
         return $this->belongsTo(Voucher::class);
+    }
+
+    public static function createRules() {
+        return [
+            'voucher_id'           => 'int|nullable',
+        ];
+    }
+
+    public static function updateRules() {
+        return [
+            'voucher_id'           => 'int|nullable',
+        ];
     }
 
 }

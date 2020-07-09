@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\ValidateTrait;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -27,6 +28,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Product extends Model
 {
+    use ValidateTrait;
+
     protected $visible = [
         'id',
         'price_each',
@@ -39,4 +42,18 @@ class Product extends Model
         'price_each',
         'description'
     ];
+
+    public static function createRules() {
+        return [
+            'price_each'    => 'int',
+            'description'   => 'string|nullable',
+        ];
+    }
+
+    public static function updateRules() {
+        return [
+            'price_each'    => 'int',
+            'description'   => 'string|nullable',
+        ];
+    }
 }
