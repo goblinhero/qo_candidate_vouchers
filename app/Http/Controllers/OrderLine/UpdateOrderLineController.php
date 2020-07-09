@@ -15,7 +15,7 @@ class UpdateOrderLineController extends Controller
 
         $order->calculateTotal();
 
-        $order->save();
+        $order->saveOrFail();
 
         return $orderLine->fresh();
 

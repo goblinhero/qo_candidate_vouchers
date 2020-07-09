@@ -14,7 +14,7 @@ class DeleteOrderLineController extends Controller
 
         $order->calculateTotal();
 
-        $order->save();
+        $order->saveOrFail();
 
         return response($orderLine, 200);
     }

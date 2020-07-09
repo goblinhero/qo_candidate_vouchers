@@ -14,7 +14,7 @@ class UpdateOrderController extends Controller
 
         $order->calculateTotal();
 
-        $order->save();
+        $order->saveOrFail();
 
         return $order->fresh();
 

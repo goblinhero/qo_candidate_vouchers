@@ -11,7 +11,7 @@ class CreateProductController extends Controller
     public function __invoke(Request $request) {
         $product = new Product($request->all());
 
-        $product->save();
+        $product->saveOrFail();
 
         return response()
             ->json(

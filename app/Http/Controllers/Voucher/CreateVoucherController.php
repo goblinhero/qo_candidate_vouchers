@@ -11,7 +11,7 @@ class CreateVoucherController extends Controller
     public function __invoke(Request $request) {
         $voucher = new Voucher($request->all());
 
-        $voucher->save();
+        $voucher->saveOrFail();
 
         return response()
             ->json(

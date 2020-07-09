@@ -62,7 +62,7 @@ class Order extends Model
     }
 
     public function voucher() {
-        return $this->hasOne(Voucher::class);
+        return $this->belongsTo(Voucher::class);
     }
 
 }

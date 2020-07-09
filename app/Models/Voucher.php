@@ -41,8 +41,4 @@ class Voucher extends Model
         'amount_remaining'
     ];
 
-    public function order() {
-        return $this->belongsTo(Order::class);
-    }
-
 }

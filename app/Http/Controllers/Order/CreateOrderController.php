@@ -13,7 +13,7 @@ class CreateOrderController extends Controller
 
         $order->calculateTotal();
 
-        $order->save();
+        $order->saveOrFail();
 
         return response()
             ->json(

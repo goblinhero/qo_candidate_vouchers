@@ -15,10 +15,9 @@ class CreateOrderLineController extends Controller
 
         $order->lines()->save($orderLine);
 
-
         $order->calculateTotal();
 
-        $order->save();
+        $order->saveOrFail();
 
         return response()
             ->json(
