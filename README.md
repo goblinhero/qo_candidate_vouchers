@@ -1,5 +1,5 @@
 # ![IMG](https://assets.quickorder.dk/angular-web-lib/v1/qo-pos-backoffice-logo.svg)
-[![Platform](https://img.shields.io/badge/Platform-PHP-lightgray)](https://github.com/quick-order/qo-qm-api)
+[![Platform](https://img.shields.io/badge/Platform-PHP-lightgray)](https://github.com/goblinhero/qo_candidate_vouchers)
 [![Framework](https://img.shields.io/badge/Framework-Laravel-blue)](https://laravel.com/)
 ## Changing of Vouchers in production
 
