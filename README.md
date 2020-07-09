@@ -25,6 +25,7 @@ php artisan migrate
 ### Start the development server for testing
 1. Run the following command from the Command Prompt / Terminal:
 ```
+docker-compose up
 php artisan serve
 ```
 
