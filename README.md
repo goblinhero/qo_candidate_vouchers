@@ -1,3 +1,6 @@
+# ![IMG](https://assets.quickorder.dk/angular-web-lib/v1/qo-pos-backoffice-logo.svg)
+[![Platform](https://img.shields.io/badge/Platform-PHP-lightgray)](https://github.com/quick-order/qo-qm-api)
+[![Framework](https://img.shields.io/badge/Framework-Laravel-blue)](https://laravel.com/)
 ## Changing of Vouchers in production
 
 ### Up and running
@@ -62,4 +65,4 @@ The possibility to have more than one Voucher on the Order to allow buying Vouch
 
 If at all possible the change in functionality should result in no downtime (the build pipeline supports this) in the frontend. There is no limit to the number of deployments.
  
- Approach and the technical solution is entirely up to you, the candidate given the constraints above.  
+ Approach and the technical solution is entirely up to you, the candidate, given the constraints above.  
