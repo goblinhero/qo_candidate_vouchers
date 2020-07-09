@@ -39,6 +39,15 @@ The solution is in use by roughly 4400 waiters across 1200 restaurants. There ar
 
 In addition, three 3rd party integrations are present that uses the same API, one of them using the Voucher functionality, the two others only using the order line functionality.
 
+### The models involved
+
+* Order: Represents what the customer needs to pay in total
+* Product: Represents a service or object that the customer can buy
+* OrderLine: Represents the purchase of a product for a given order.
+* Voucher: Represents a gift-card that can be used to pay for a later order
+
+Everything related to actually paying the order is not represented in the example code and can be safely ignored for the purpose of the assignment.
+
 ### Current solution
 
 The codebase is a condensed, simplified version of our current solution, only containing the API.
