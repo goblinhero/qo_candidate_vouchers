@@ -36,6 +36,8 @@ In addition, three 3rd party integrations are present that uses the same API, on
 
 ### Current solution
 
+The codebase is a condensed, simplified version of our current solution, only containing the API.
+
 If a Voucher has been bought as part of an order, it is linked directly to the Order and the total is calculated with a combination of the Order Lines and the amount on the Voucher.
 
 ### Wanted functionality
@@ -46,4 +48,4 @@ The possibility to have more than one Voucher on the Order to allow buying Vouch
 
 If at all possible the change in functionality should result in no downtime (the build pipeline supports this) in the frontend. There is no limit to the number of deployments.
  
- Approach and the technical solution is entirely up to you, the candidate given the constraints above.
+ Approach and the technical solution is entirely up to you, the candidate given the constraints above.  
