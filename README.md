@@ -1,7 +1,6 @@
 ## Changing of Vouchers in production
 
 ### Up and running
-
 * Make sure you have php 7.4+ installed.
 * Make sure you have Composer installed
 * Make sure you have docker installed 
@@ -21,7 +20,19 @@ php artisan migrate
 php artisan serve
 ```
 
+## Testing the API
+The API routes are structured as a traditional REST client (see routes/api.php for specifics):
+* Orders can be found at ```/api/orders```
+* OrderLines can be found at ```/api/orders/{orderId}/order-lines```
+* Etc.
+
 ## The assignment
+
+### Background
+
+The solution is in use by roughly 4400 waiters across 1200 restaurants. There are two frontends dependant on the backend (an iOS app and a backoffice web application). the iOS app can be up to a week to get a change approved and rolled out. 
+
+In addition, three 3rd party integrations are present that uses the same API, one of them using the the Voucher functionality, the two others only using the order line functionality.
 
 ### Current solution
 
@@ -31,3 +42,8 @@ If a Voucher has been bought as part of an order, it is linked directly to the O
 
 The possibility to have more than one Voucher on the Order to allow buying Vouchers in bulk.
 
+### Constraints
+
+If at all possible the change in functionality should result in no downtime (the build pipeline supports this) in the frontend. There is no limit to the number of deployments.
+ 
+ Approach and the technical solution is entirely up to you, the candidate given the constraints above.
