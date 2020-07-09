@@ -1,16 +1,21 @@
 ## Changing of Vouchers in production
 
 ### Up and running
-* Make sure you have php 7.4+ installed.
-* Make sure you have Composer installed
-* Make sure you have docker installed 
+* Make sure you have php 7.4+ installed (install: https://www.php.net/manual/en/install.php)
+* Make sure you have Composer installed (install: https://getcomposer.org/doc/00-intro.md)
+* Make sure you have docker installed (install: https://docs.docker.com/get-docker/)
 * Copy .env.example to .env file and edit values to have the correct user/pass for your DB instance
 
 ### Running for the first time
 1. Run ```docker-compose up``` to install mysql and redis in a docker instance
 2. Run the following commands from Command Prompt / Terminal: 
 ```
-composer install (if running Windows add --ignore-platform-reqs) 
+Windoes:
+composer install --ignore-platform-reqs 
+php artisan migrate
+
+Linux/MacOS:
+composer install  
 php artisan migrate
 ```
 
@@ -32,7 +37,7 @@ The API routes are structured as a traditional REST client (see routes/api.php f
 
 The solution is in use by roughly 4400 waiters across 1200 restaurants. There are two frontends dependant on the backend (an iOS app and a backoffice web application). the iOS app can be up to a week to get a change approved and rolled out. 
 
-In addition, three 3rd party integrations are present that uses the same API, one of them using the the Voucher functionality, the two others only using the order line functionality.
+In addition, three 3rd party integrations are present that uses the same API, one of them using the Voucher functionality, the two others only using the order line functionality.
 
 ### Current solution
 
